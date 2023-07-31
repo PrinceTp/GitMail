@@ -62,6 +62,11 @@
     		<artifactId>spring-boot-starter-data-cassandra</artifactId>
     		<version>3.1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.ocpsoft.prettytime</groupId>
+			<artifactId>prettytime-integration-jsf</artifactId>
+			<version>5.0.7.Final</version>
+		</dependency>
 	</dependencies>
 
 	<build>
