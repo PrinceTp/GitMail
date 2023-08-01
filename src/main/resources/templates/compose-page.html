@@ -60,9 +60,6 @@
         </header>
 
         <nav>
-            <div class="card">
-                <a href="/compose" class="btn btn-primary">Compose Message</a>
-            </div>
             <div th:insert="components/folder-list :: folder-list(panelName = 'Folders',folders = ${defaultFolders})">
             </div>
             <div th:insert="components/folder-list :: folder-list(panelName = 'User Folders',folders = ${userFolders})">
@@ -70,21 +67,27 @@
         </nav>
 
         <main>
-            <div class="card" th:if="${emailList}">
-                <div class="card-header" th:text="${folderName}">Inbox</div>
-                <div class="card-body">
-                    <div class="list-group">
-                        <a th:each="message : ${emailList}" th:href="@{'/emails/' + ${message.key.timeUUID}}"
-                            class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1" th:text="${message.subject}">List group item heading</h5>
-                                <smal th:text="${message.agoTimeString}"> 3 days ago</small>
+            <div class="card">
+                <div class="card-header">Create New Email</div>
+                <dl class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="toIds" class="form-label">To</label>
+                            <input type="text" th:value="${toIds}" class="form-control" id="toIds">
+                            <div id="toIdhelp" class="form-text">Enter GitHub IDs of recipients seperated by comma
                             </div>
-                            <p class="mb-1" th:text="${message.to}">Some placeholder content in a paragraph.
-                            </p>
-                        </a>
-                    </div>
-                </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="body" class="form-label">Body</label>
+                            <textarea rows="12" type="text" class="form-control" id="body"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </dl>
             </div>
 
         </main>
