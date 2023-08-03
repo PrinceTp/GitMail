@@ -3,7 +3,6 @@ package io.javabrains.inbox.controllers;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,6 +48,7 @@ public class ComposeController {
         model.addAttribute("userFolders", userFolders);
         List<Folder> defaultFolders = folderService.fetchDefualtFolders(userId);
         model.addAttribute("defaultFolders", defaultFolders);
+        model.addAttribute("stats", folderService.mapCountToLabels(userId));
         List<String> uniqueToIds = splitIds(to);
         model.addAttribute("toIds", String.join(", ", uniqueToIds));
 

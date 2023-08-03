@@ -12,12 +12,17 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import io.javabrains.inbox.email.Email;
 import io.javabrains.inbox.email.EmailRepository;
+import io.javabrains.inbox.emaillist.EmailListItem;
+import io.javabrains.inbox.emaillist.EmailListItemKey;
+import io.javabrains.inbox.emaillist.EmailListItemRepository;
 import io.javabrains.inbox.folders.Folder;
 import io.javabrains.inbox.folders.FolderRepository;
 import io.javabrains.inbox.folders.FolderService;
+import io.javabrains.inbox.folders.UnreadEmailStatsRepository;
 
 @Controller
 public class EmailViewController {
@@ -28,9 +33,14 @@ public class EmailViewController {
     private FolderService folderService;
     @Autowired
     private EmailRepository emailRepository;
+    @Autowired
+    private EmailListItemRepository emailListItemRepository;
+    @Autowired
+    private UnreadEmailStatsRepository unreadEmailStatsRepository;
 
     @GetMapping(value = "/emails/{id}")
     public String emailView(
+            @RequestParam String folder,
             @PathVariable UUID id,
             @AuthenticationPrincipal OAuth2User principal,
             Model model) {
@@ -54,6 +64,22 @@ public class EmailViewController {
         String toIds = String.join(",", email.getTo());
         model.addAttribute("email", email);
         model.addAttribute("toIds", toIds);
+
+        EmailListItemKey key = new EmailListItemKey();
+        key.setId(userId);
+        key.setLabel(folder);
+        key.setTimeUUID(email.getId());
+
+        Optional<EmailListItem> optionEmailLIstItem = emailListItemRepository.findById(key);
+        if (optionEmailLIstItem.isPresent()) {
+            EmailListItem emailListItem = optionEmailLIstItem.get();
+            if (emailListItem.isUnread()) {
+                emailListItem.setUnread(false);
+                emailListItemRepository.save(emailListItem);
+                unreadEmailStatsRepository.decreamentUnreadCount(userId, folder);
+            }
+        }
+        model.addAttribute("stats", folderService.mapCountToLabels(userId));
 
         return "email-page";
     }

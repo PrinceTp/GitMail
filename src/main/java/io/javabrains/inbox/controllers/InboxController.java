@@ -3,6 +3,8 @@ package io.javabrains.inbox.controllers;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.ocpsoft.prettytime.PrettyTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ import io.javabrains.inbox.emaillist.EmailListItemRepository;
 import io.javabrains.inbox.folders.Folder;
 import io.javabrains.inbox.folders.FolderRepository;
 import io.javabrains.inbox.folders.FolderService;
+import io.javabrains.inbox.folders.UnreadEmailStats;
+import io.javabrains.inbox.folders.UnreadEmailStatsRepository;
 
 @Controller
 public class InboxController {
@@ -47,6 +51,7 @@ public class InboxController {
         model.addAttribute("userFolders", userFolders);
         List<Folder> defaultFolders = folderService.fetchDefualtFolders(userId);
         model.addAttribute("defaultFolders", defaultFolders);
+        model.addAttribute("stats", folderService.mapCountToLabels(userId));
 
         // Fetch messages
         if (!StringUtils.hasText(folder)) {
