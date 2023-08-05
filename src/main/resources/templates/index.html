@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Demo</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width" />
-    <base href="/" />
-  </head>
-  <body>
-    <h1>Login</h1>
 
-    <div>
-      With GitHub: <a href="/oauth2/authorization/github">click here</a>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Demo</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width" />
+  <base href="/" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+  <style>
+    .space-bottom {
+      margin-bottom: 30px;
+    }
+
+    .heading-top {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container text-center heading-top">
+
+    <h1 class="display-5 fw-bold">GitMail App</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4 space-bottom">Using GitHub for mail!!</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center space-bottom">
+        <a type="button" href="/oauth2/authorization/github" class="btn btn-success btn-lg px-4 gap-3">Login via
+          GitHub</a>
+      </div>
     </div>
-  </body>
+  </main>
+</body>
+
 </html>

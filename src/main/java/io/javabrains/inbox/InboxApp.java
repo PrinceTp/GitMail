@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -42,8 +43,11 @@ public class InboxApp {
 		folderRepository.save(new Folder("PrinceT1812", "Uni", "yellow"));
 
 		for (int i = 0; i < 10; i++) {
-			emailService.sendEmail("PrinceT1812", Arrays.asList("PrinceT1812"), "Hello" + i, "hey");
+			emailService.sendEmail("PrinceT1812", Arrays.asList("PrinceT1812"),
+					"Title : " + RandomStringUtils.randomAlphabetic(10),
+					RandomStringUtils.randomAlphabetic(1000));
 		}
-	}
 
+		emailService.sendEmail("abc", Arrays.asList("def", "abc"), "Hellow ", "body");
+	}
 }

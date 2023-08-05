@@ -14,6 +14,7 @@
     <style>
         .container {
             display: grid;
+            margin-top: 20px;
 
             grid-template-areas:
                 "header header header"
@@ -56,7 +57,11 @@
 
     <div class="container">
         <header>
-            <h1>hello,name</h1>
+            <h3>
+                Inbox App
+                <small class="text-muted">Welcome, </small>
+                <small class="text-muted" th:text="${userName}">User name</small>
+            </h3>
         </header>
 
         <nav>

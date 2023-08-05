@@ -14,6 +14,7 @@
     <style>
         .container {
             display: grid;
+            margin-top: 20px;
 
             grid-template-areas:
                 "header header header"
@@ -56,7 +57,11 @@
 
     <div class="container">
         <header>
-            <h1>Hello,PrinceT</h1>
+            <h3>
+                Inbox App
+                <small class="text-muted">Welcome, </small>
+                <small class="text-muted" th:text="${userName}">User name</small>
+            </h3>
         </header>
 
         <nav>
@@ -76,7 +81,8 @@
                     <div class="list-group">
                         <a th:each="message : ${emailList}"
                             th:href="@{'/emails/' + ${message.key.timeUUID}}+ '?folder='+ ${folderName}"
-                            class="list-group-item list-group-item-action list-group-item-secondary">
+                            class="list-group-item list-group-item-action"
+                            th:classappend="${message.isUnread} ? 'list-group-item-primary'">
                             <div class=" d-flex w-100 justify-content-between">
                                 <h5 class="mb-1" th:text="${message.subject}">Subject</h5>
                                 <smal th:text="${message.agoTimeString}"> 3 days ago</small>
