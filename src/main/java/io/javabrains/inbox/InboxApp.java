@@ -38,12 +38,12 @@ public class InboxApp {
 
 	@PostConstruct
 	public void init() {
-		folderRepository.save(new Folder("PrinceT1812", "Work", "blue"));
-		folderRepository.save(new Folder("PrinceT1812", "Home", "green"));
-		folderRepository.save(new Folder("PrinceT1812", "Uni", "yellow"));
+		folderRepository.save(new Folder("PrinceTp", "Work", "blue"));
+		folderRepository.save(new Folder("PrinceTp", "Home", "green"));
+		folderRepository.save(new Folder("PrinceTp", "Uni", "yellow"));
 
 		for (int i = 0; i < 10; i++) {
-			emailService.sendEmail("PrinceT1812", Arrays.asList("PrinceT1812"),
+			emailService.sendEmail("PrinceTp", Arrays.asList("PrinceTp"),
 					"Title : " + RandomStringUtils.randomAlphabetic(10),
 					RandomStringUtils.randomAlphabetic(1000));
 		}
