@@ -1,4 +1,4 @@
-package io.javabrains.inbox.folders;
+package inbox.folders;
 
 import java.util.Arrays;
 import java.util.List;

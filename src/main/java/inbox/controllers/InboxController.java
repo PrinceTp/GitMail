@@ -1,4 +1,4 @@
-package io.javabrains.inbox.controllers;
+package inbox.controllers;
 
 import java.util.Date;
 import java.util.List;
@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.datastax.oss.driver.api.core.uuid.Uuids;
 
-import io.javabrains.inbox.emaillist.EmailListItem;
-import io.javabrains.inbox.emaillist.EmailListItemRepository;
-import io.javabrains.inbox.folders.Folder;
-import io.javabrains.inbox.folders.FolderRepository;
-import io.javabrains.inbox.folders.FolderService;
-import io.javabrains.inbox.folders.UnreadEmailStats;
-import io.javabrains.inbox.folders.UnreadEmailStatsRepository;
+import inbox.emaillist.EmailListItem;
+import inbox.emaillist.EmailListItemRepository;
+import inbox.folders.Folder;
+import inbox.folders.FolderRepository;
+import inbox.folders.FolderService;
+import inbox.folders.UnreadEmailStats;
+import inbox.folders.UnreadEmailStatsRepository;
 
 @Controller
 public class InboxController {

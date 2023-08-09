@@ -1,4 +1,4 @@
-package io.javabrains.inbox.controllers;
+package inbox.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import io.javabrains.inbox.email.Email;
-import io.javabrains.inbox.email.EmailRepository;
-import io.javabrains.inbox.emaillist.EmailListItem;
-import io.javabrains.inbox.emaillist.EmailListItemKey;
-import io.javabrains.inbox.emaillist.EmailListItemRepository;
-import io.javabrains.inbox.folders.Folder;
-import io.javabrains.inbox.folders.FolderRepository;
-import io.javabrains.inbox.folders.FolderService;
-import io.javabrains.inbox.folders.UnreadEmailStatsRepository;
+import inbox.email.Email;
+import inbox.email.EmailRepository;
+import inbox.emaillist.EmailListItem;
+import inbox.emaillist.EmailListItemKey;
+import inbox.emaillist.EmailListItemRepository;
+import inbox.folders.Folder;
+import inbox.folders.FolderRepository;
+import inbox.folders.FolderService;
+import inbox.folders.UnreadEmailStatsRepository;
 
 @Controller
 public class EmailViewController {

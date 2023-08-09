@@ -1,4 +1,4 @@
-package io.javabrains.inbox.email;
+package inbox.email;
 
 import java.util.UUID;
 

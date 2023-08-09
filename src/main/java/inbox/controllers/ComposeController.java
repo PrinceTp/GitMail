@@ -1,4 +1,4 @@
-package io.javabrains.inbox.controllers;
+package inbox.controllers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import io.javabrains.inbox.email.EmailService;
-import io.javabrains.inbox.folders.Folder;
-import io.javabrains.inbox.folders.FolderRepository;
-import io.javabrains.inbox.folders.FolderService;
+import inbox.email.EmailService;
+import inbox.folders.Folder;
+import inbox.folders.FolderRepository;
+import inbox.folders.FolderService;
 
 @Controller
 public class ComposeController {

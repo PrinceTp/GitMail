@@ -1,4 +1,4 @@
-package io.javabrains.inbox.emaillist;
+package inbox.emaillist;
 
 import java.util.List;
 

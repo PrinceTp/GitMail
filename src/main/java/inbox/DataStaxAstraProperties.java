@@ -1,4 +1,4 @@
-package io.javabrains.inbox;
+package inbox;
 
 import java.io.File;
 

@@ -26,4 +26,4 @@ astra.db:
     application.token: AstraCS:TBvSIoKmYnkpIhMJAqzijTdM:b15df53e9d747f48a27f2a60fe3cfaf5036007b0c7843a883a7b84f8d19d559b
 
 datastax.astra:
-    secure-connect-bundle: secure-connect-inbox-app.zip
+    secure-connect-bundle: secure-connect-gitmail-app.zip

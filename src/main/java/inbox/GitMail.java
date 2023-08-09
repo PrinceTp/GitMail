@@ -1,4 +1,4 @@
-package io.javabrains.inbox;
+package inbox;
 
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -13,13 +13,13 @@ import org.springframework.boot.autoconfigure.cassandra.CqlSessionBuilderCustomi
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.javabrains.inbox.email.EmailService;
-import io.javabrains.inbox.folders.Folder;
-import io.javabrains.inbox.folders.FolderRepository;
+import inbox.email.EmailService;
+import inbox.folders.Folder;
+import inbox.folders.FolderRepository;
 
 @SpringBootApplication
 @RestController
-public class InboxApp {
+public class GitMail {
 
 	@Autowired
 	FolderRepository folderRepository;
@@ -27,7 +27,7 @@ public class InboxApp {
 	EmailService emailService;
 
 	public static void main(String[] args) {
-		SpringApplication.run(InboxApp.class, args);
+		SpringApplication.run(GitMail.class, args);
 	}
 
 	@Bean

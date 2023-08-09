@@ -1,4 +1,4 @@
-package io.javabrains.inbox.email;
+package inbox.email;
 
 import java.util.List;
 
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.datastax.oss.driver.api.core.uuid.Uuids;
 
-import io.javabrains.inbox.emaillist.EmailListItem;
-import io.javabrains.inbox.emaillist.EmailListItemKey;
-import io.javabrains.inbox.emaillist.EmailListItemRepository;
-import io.javabrains.inbox.folders.UnreadEmailStatsRepository;
+import inbox.emaillist.EmailListItem;
+import inbox.emaillist.EmailListItemKey;
+import inbox.emaillist.EmailListItemRepository;
+import inbox.folders.UnreadEmailStatsRepository;
 
 @Service
 public class EmailService {
