@@ -18,6 +18,8 @@ The idea is to make use of GitHub ID of the logged in user to send and recieve m
 - **Security**: Spring Security
 - **View Layer**: Thymeleaf
 
+https://github.com/PrinceTp/GitMail/assets/104999853/a0d5ff0c-5d7d-4bd4-8b67-778dcc3a5835
+
 ## Installation
 
 To run GitMail, you need to have Java and Maven installed on your system.
